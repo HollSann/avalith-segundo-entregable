@@ -1,0 +1,23 @@
+{
+  "name": "avalith-segundo-entregable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dot-env": "^0.0.1",
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.6"
+  }
+}
