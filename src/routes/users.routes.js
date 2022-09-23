@@ -1,17 +1,28 @@
 const express = require("express");
 const {
   getUser,
-  addUser,
+  userRegistration,
   getAllUsers,
-  editUser,
+  editLoggedUser,
   deleteUser,
+  userLogin,
+  editUser,
 } = require("../controllers/user.controllers.js");
+
+const {
+  checkAdmin,
+  checkLoggedIn,
+  checkLoggedUser,
+} = require("../middlewares/checkUser.js");
 
 const router = express.Router();
 
-router.get("/users", getAllUsers);
-router.post("/users", addUser);
-router.get("/users/:id", getUser);
-router.put("/users/:id", editUser);
-router.delete("/users/:id", deleteUser);
+router.post("/register", userRegistration);
+router.post("/login", userLogin);
+router.get("/users", checkLoggedIn, getAllUsers);
+router.get("/users/:id", checkLoggedIn, getUser);
+router.put("/users/editme", checkLoggedUser, editLoggedUser);
+router.put("/users/:id", checkAdmin, editUser);
+router.delete("/users/:id", checkAdmin, deleteUser);
+
 module.exports = router;

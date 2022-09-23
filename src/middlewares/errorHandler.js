@@ -14,12 +14,13 @@ const errorParser = (error, req, res, next) => {
   } else {
     res.status(500).send("Server ERROR");
   }
+  next()
 };
 
 const notFound = (req, res, next) => {
   const err = new Error("Not Found");
   err.status = 404;
-  return next(err);
+  return next();
 };
 
 const errorHandler = {

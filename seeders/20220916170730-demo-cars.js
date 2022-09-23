@@ -13,7 +13,7 @@ module.exports = {
       {
         brand: "Ford",
         speed: "300",
-        userId: 1,
+        userId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

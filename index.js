@@ -9,10 +9,10 @@ const app = require("./app.js");
 const {
   errorParser,
   errorLogger,
+  notFound,
 } = require("./src/middlewares/errorHandler.js");
 
 app.use(bodyParser.json());
-app.use([errorLogger, errorParser]);
 
 const main = async () => {
   try {
@@ -28,5 +28,5 @@ const main = async () => {
   });
 };
 main();
-
+app.use([errorLogger, errorParser,notFound]);
 app.use(indexRoutes, userRoutes, carRoutes);
